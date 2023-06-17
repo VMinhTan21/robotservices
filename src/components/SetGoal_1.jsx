@@ -47,7 +47,7 @@ class SetGoal_1 extends Component {
                 Config.ROSBRIDGE_SERVER_PORT +
                 ""
             )
-            console.log("SetGoal_2 - Connected")
+            console.log("SetGoal_1 - Connected")
         } catch (error) {
             console.log(
                 "ws://" +

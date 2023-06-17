@@ -65,17 +65,48 @@ class SetGoal_2 extends Component {
         //     console.log('Service call: ', response);
         // })
 
-        const cmd = new window.ROSLIB.Topic({
-            ros: this.state.ros,
-            name: '/run_command',  // Replace with an appropriate topic name
-            messageType: 'std_msgs/String'
-          });
-        
-        const runCommand = new window.ROSLIB.Message({
-            data: 'rosrun your_package your_executable'  // Replace with your desired rosrun command
-          });
-        
-        cmd.publish(runCommand);
+        // const cmd = new window.ROSLIB.Topic({
+        //     ros: this.state.ros,
+        //     name: '/run_command',  // Replace with an appropriate topic name
+        //     messageType: 'std_msgs/String'
+        //   });
+
+        // const runCommand = new window.ROSLIB.Message({
+        //     data: 'rosrun your_package your_executable'  // Replace with your desired rosrun command
+        //   });
+
+        // cmd.publish(runCommand);
+
+        const goal = new window.ROSLIB.Goal({
+            actionClient: new window.ROSLIB.ActionClient({
+                ros: this.state.ros,
+                serverName: '/move_base',
+                actionName: 'move_base_msgs/MoveBaseAction'
+            }),
+            goalMessage: {
+                target_pose: {
+                    header: {
+                        frame_id: 'map'  // Replace with the desired frame ID
+                    },
+                    pose: {
+                        position: {
+                            x: 1.0,  // Replace with the desired position
+                            y: 2.0,
+                            z: 0.0
+                        },
+                        orientation: {
+                            x: 0.0,
+                            y: 0.0,
+                            z: 0.0,
+                            w: 1.0
+                        }
+                    }
+                }
+            }
+        });
+
+        goal.send();
+        console.log('Goal sent!');
     }
 
     render() {

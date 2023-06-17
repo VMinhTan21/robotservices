@@ -3,6 +3,9 @@ import Connection from "./Connection";
 import RobotState from "./RobotState";
 import Teleoperation from "./Teleoperation";
 import Map from "./Map";
+import SetGoal_1 from "./SetGoal_1";
+import SetGoal_2 from "./SetGoal_2";
+
 import { Row, Col, Container, Button } from "react-bootstrap";
 class Home extends Component {
   state = {};
@@ -20,6 +23,8 @@ class Home extends Component {
           <Row>
             <Col>
               <Teleoperation />
+              <SetGoal_1 />
+              <SetGoal_2 />
             </Col>
           </Row>
           <Row>

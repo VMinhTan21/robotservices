@@ -28,6 +28,11 @@ class SetGoal_2 extends Component {
                 Config.ROSBRIDGE_SERVER_PORT +
                 ""
             )
+            this.state.ros.on('connection', ()=> {
+                this.setState({
+                    ros: this.state.ros
+                })
+            })
             
             console.log("SetGoal_2 - Connected")
         } catch (error) {

@@ -15,10 +15,13 @@ class SetGoal_2 extends Component {
 
 
     init_connection() {
-        this.setState({
-            ros: new window.ROSLIB.Ros()
+        this.state.ros  =  new window.ROSLIB.Ros()
+        this.state.ros.on('connection', (e)=> {
+            console.log(e)
+            this.setState({
+                ros: this.state.ros
+            })
         })
-
         try {
             console.log('connect')
             this.state.ros.connect(
@@ -28,12 +31,7 @@ class SetGoal_2 extends Component {
                 Config.ROSBRIDGE_SERVER_PORT +
                 ""
             )
-            this.state.ros.on('connection', (e)=> {
-                console.log(e)
-                this.setState({
-                    ros: this.state.ros
-                })
-            })
+        
             
             console.log("SetGoal_2 - Connected")
         } catch (error) {

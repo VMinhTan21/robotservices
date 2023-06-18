@@ -20,6 +20,7 @@ class SetGoal_2 extends Component {
         })
 
         try {
+            console.log('connect')
             this.state.ros.connect(
                 "ws://" +
                 Config.ROSBRIDGE_SERVER_IP +

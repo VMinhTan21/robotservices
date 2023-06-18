@@ -18,9 +18,10 @@ class SetGoal_2 extends Component {
 
 
     init_connection() {
-        this.state.ros = new window.ROSLIB.Ros(
+        //this.state.ros = new window.ROSLIB.Ros()
+        this.setState( ros: new window.ROSLIB.Ros(
             {url: "ws://192.168.1.201:9090"}
-        )
+        ))
 
         try {
             /*this.state.ros.connect(

@@ -16,7 +16,9 @@ class SetGoal_2 extends Component {
 
 
     init_connection() {
-        this.setState( ros: new window.ROSLIB.Ros() )
+        this.setState({
+            ros: new window.ROSLIB.Ros()
+        })
 
         try {
             this.state.ros.connect(

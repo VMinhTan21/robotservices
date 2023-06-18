@@ -19,25 +19,22 @@ class SetGoal_2 extends Component {
 
     init_connection() {
         this.setState( ros: new window.ROSLIB.Ros() )
-        this.state.ros.connect(
-            "ws://192.168.1.201:9090"
-        )
 
         try {
-            /*this.state.ros.connect(
+            this.state.ros.connect(
                 "ws://" +
                 Config.ROSBRIDGE_SERVER_IP +
                 ":" +
                 Config.ROSBRIDGE_SERVER_PORT +
                 ""
-            )*/
+            )
 
             /*Test IP*/
-            this.state.on("connection", function () {
+            /*this.state.on("connection", function () {
                 console.log("Setgoal_2 - connected")
-            })
+            })*/
             
-            // console.log("SetGoal_2 - Connected")
+            console.log("SetGoal_2 - Connected")
         } catch (error) {
             console.log(
                 "ws://" +

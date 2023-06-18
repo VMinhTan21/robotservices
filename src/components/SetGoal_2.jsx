@@ -3,8 +3,6 @@ import { Row, Col, Container, Button } from "react-bootstrap";
 
 import Config from "../scripts/config"
 
-
-
 class SetGoal_2 extends Component {
     state = { ros: null }
 
@@ -28,11 +26,6 @@ class SetGoal_2 extends Component {
                 Config.ROSBRIDGE_SERVER_PORT +
                 ""
             )
-
-            /*Test IP*/
-            /*this.state.on("connection", function () {
-                console.log("Setgoal_2 - connected")
-            })*/
             
             console.log("SetGoal_2 - Connected")
         } catch (error) {

@@ -5,7 +5,6 @@ import Config from "../scripts/config"
 
 class SetGoal_2 extends Component {
     state = { ros: null }
-
     constructor() {
         super()
 
@@ -49,6 +48,7 @@ class SetGoal_2 extends Component {
 
     sendCommand(event) {
         console.log("SetGoal_2 sent command")
+        console.log(this.state.ros)
 
         // var cmdService = new window.ROSLIB.Service({
         //     ros: this.state.ros,
